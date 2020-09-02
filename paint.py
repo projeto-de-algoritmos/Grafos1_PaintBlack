@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 from PIL import Image
 from matplotlib import pyplot as plt
+import sys
+print(sys.getrecursionlimit())
+sys.setrecursionlimit(10000000)
 
 
 M = 8
