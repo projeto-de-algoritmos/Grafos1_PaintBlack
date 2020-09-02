@@ -3,47 +3,50 @@ import numpy as np
 from PIL import Image
 from matplotlib import pyplot as plt
 
-# Python3 program to implement 
-# flood fill algorithm 
 
-# Dimentions of paint screen 
 M = 8
 N = 8
 
-# A recursive function to replace 
-# previous color 'prevC' at '(x, y)' 
-# and all surrounding pixels of (x, y) 
-# with new color 'newC' and 
 def floodFillUtil(screen, x, y, prevC, newC): 
-    #print("ok")
-    #print(prevC != screen[x][y])
+    #print(prevC)
+    prevC = [0,0,0]
+    #prevC = screen[x][y]
+    #print(screen[x][y][0] != prevC[0] and screen[x][y][1] != prevC[1] and screen[x][y][2] != prevC[2])
     # Base cases 
     if (x < 0 or x >= M or y < 0 or
-    y >= N or screen[x][y][0] != prevC[0] or screen[x][y][1] != prevC[1] or screen[x][y][2] != prevC[2] or
-    screen[x][y][0] == newC[0] or screen[x][y][1] == newC[1] or screen[x][y][2] == newC[2] ): 
+    y >= N or (screen[x][y][0] != prevC[0] or screen[x][y][1] != prevC[1] or screen[x][y][2] != prevC[2]) or
+    (screen[x][y][0] == newC[0] and screen[x][y][1] == newC[1] and screen[x][y][2] == newC[2]) ): 
         return
+    prevC = screen[x][y]
 
     # Replace the color at (x, y) 
     screen[x][y] = newC
-    print(screen[x][y])
+    #print(screen[x][y])
+    cv2.imshow("sasuke", screen)
+    cv2.waitKey(0)
+
     #
     # Recur for north, east, south and west 
+    print("1")
+    #print(x)
     floodFillUtil(screen, x + 1, y, prevC, newC) 
+    print("2")
     floodFillUtil(screen, x - 1, y, prevC, newC) 
+    print("3")
     floodFillUtil(screen, x, y + 1, prevC, newC) 
+    print("4")
     floodFillUtil(screen, x, y - 1, prevC, newC) 
 
 
-    # It mainly finds the previous color on (x, y) and 
-    # calls floodFillUtil() 
 def floodFill(screen, x, y, newC): 
-    prevC = screen[x][y] 
+    prevC = screen[x][y]
+    print("ok")
     floodFillUtil(screen, x, y, prevC, newC) 
 
 
 
 
-origin = cv2.imread('./images/sasuke.jpg') #load naruto image 
+origin = cv2.imread('./images/naruto.jpg') #load naruto image 
 #gray = cv2.imread('captchas/download.png', 0) # Open image in gray scale
 
 #Re-Escale Image by Proportion
@@ -51,8 +54,8 @@ scale = 50
 width = int(origin.shape[1] * scale / 100)
 height = int(origin.shape[0] * scale / 100)
 #print(width, height)
-M = 320
-N = 240
+M = 240
+N = 320
 
 new_origin = (width, height)
 
@@ -77,10 +80,9 @@ for i in img:
         i[j][2] = 139 #R
 """
 
-
-x = 88
-y = 106
-color = [0,0,255]
+x = 167
+y = 253
+color = [128,0,128]
 #print(img[0][0] == color)
 
 floodFill(img, x, y, color)
