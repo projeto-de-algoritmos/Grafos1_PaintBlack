@@ -78,8 +78,8 @@ def fill(screen, start_coords, fill_value, i, j):
 
         if screen[x][y][0] == orig_value[0] and screen[x][y][1] == orig_value[1] and screen[x][y][2] == orig_value[2]:
             screen[x][y] = fill_value
-            #cv2.imshow("Image State", screen)
-            #cv2.waitKey(1)
+            cv2.imshow("Image State", screen)
+            cv2.waitKey(1)
             if x > 0:
                 stack.add((x - 1, y))
             if x < (xsize - 1):
