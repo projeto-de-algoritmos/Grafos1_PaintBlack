@@ -1,7 +1,4 @@
 import cv2
-import numpy as np
-from PIL import Image
-from matplotlib import pyplot as plt
 import tkinter as tk
 import sys
 
@@ -94,10 +91,10 @@ def fill(screen, start_coords, fill_value, i, j):
 
 
 #Main
-origin = cv2.imread('./images/naruto.jpg') #load image 
+origin = cv2.imread('./images/lebron.jpg') #load image 
 
 #Re-Escale Image by Proportion
-scale = 60
+scale = 100
 width = int(origin.shape[1] * scale / 100)
 height = int(origin.shape[0] * scale / 100)
 
@@ -121,27 +118,3 @@ while(True):
     cv2.imshow(window, img)
     if cv2.waitKey(20) == 27:
         break
-
-
-def floodFillUtil(screen, x, y, prevC, newC): 
-    prevC = [0,0,0]
-    
-    if (x < 0 or x >= M or y < 0 or
-    y >= N or (screen[x][y][0] != prevC[0] or screen[x][y][1] != prevC[1] or screen[x][y][2] != prevC[2]) or
-    (screen[x][y][0] == newC[0] and screen[x][y][1] == newC[1] and screen[x][y][2] == newC[2]) ): 
-        return
-    
-    prevC = screen[x][y]
-    screen[x][y] = newC
-    #cv2.imshow("Image", screen)
-    #cv2.waitKey(0)
-
-    
-    floodFillUtil(screen, x + 1, y, prevC, newC) 
-    floodFillUtil(screen, x - 1, y, prevC, newC) 
-    floodFillUtil(screen, x, y + 1, prevC, newC) 
-    floodFillUtil(screen, x, y - 1, prevC, newC) 
-
-
-def floodFill(screen, x, y, newC): 
-    floodFillUtil(screen, x, y, prevC, newC) 
