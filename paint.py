@@ -78,8 +78,8 @@ def fill(screen, start_coords, fill_value, i, j):
 
         if screen[x][y][0] == orig_value[0] and screen[x][y][1] == orig_value[1] and screen[x][y][2] == orig_value[2]:
             screen[x][y] = fill_value
-            cv2.imshow("Image State", screen)
-            cv2.waitKey(1)
+            #cv2.imshow("Image State", screen)
+            #cv2.waitKey(1)
             if x > 0:
                 stack.add((x - 1, y))
             if x < (xsize - 1):
@@ -91,10 +91,10 @@ def fill(screen, start_coords, fill_value, i, j):
 
 
 #Main
-origin = cv2.imread('./images/lebron.jpg') #load image 
+origin = cv2.imread('./images/default.png') #load image 
 
 #Re-Escale Image by Proportion
-scale = 100
+scale = 80
 width = int(origin.shape[1] * scale / 100)
 height = int(origin.shape[0] * scale / 100)
 
@@ -103,10 +103,12 @@ N = height
 
 new_origin = (width, height)
 origin = cv2.resize(origin, new_origin)
+#cv2.imshow('inicial', origin)
 
 gray = cv2.cvtColor(origin, cv2.COLOR_BGR2GRAY)
 gray = cv2.bilateralFilter(gray, 11, 17, 17)
 edged = cv2.Canny(gray, 2, 200)
+#cv2.imshow('bordas e arestas', edged)
 
 img = cv2.cvtColor(edged, cv2.COLOR_GRAY2BGR)
 
