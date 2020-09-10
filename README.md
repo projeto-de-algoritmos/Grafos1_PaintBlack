@@ -10,7 +10,7 @@
 | 17/0033112|Eugênio Sales|
 
 ## Sobre 
-    PB é um projeto que utiliza imagens para detectação de arestas e bordas em preto e branco, cujo intuito é possibilitar a coloração desta imagem através do algoritmo estudado Flood Fill de forma instantânea ou animada.
+    PB é um projeto que utiliza imagens para detectação de arestas e bordas em preto e branco, cujo intuito é possibilitar a coloração(especificamente das regiões pretas) desta imagem através do algoritmo estudado Flood Fill de forma instantânea ou animada.
 
 ## Screenshots
 
@@ -52,5 +52,15 @@ Pressione ESC caso deseje sair do programa. Também é possível pular a "anima�
 ## Outros 
 Importante ressaltar que o foco do projeto era demonstrar o algoritmo em ação, logo algumas arestas e regiões detectadas podem não estar com seus contornos exatamente fechados o que pode acarretar na coloração de uma região bem maior que a esperada. Durante a animação é possível notar essa carência de arestas e bordas em alguns casos. 
 
+## Restrições
+ * A coloração do algoritmo acontece apenas nas regiões pretas [0,0,0]
+
+ * Não é possível, até o presente momento, recolorir as regiões
+
+* Redimensionar a imagem pode alterar o contorno/fechamento das arestas, procure sempre deixa em um formato proporcional adequado (por exemplo a imagem default.png funciona com o scale em 80)
+
+* As dimensões da imagem podem ser alteradas a partir da porcentagem pela variável _scale_ na linha 97
+
+* O vídeo demonstrativo está presente na pasta raiz do projeto 
 
 
