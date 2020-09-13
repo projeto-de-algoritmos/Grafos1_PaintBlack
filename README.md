@@ -26,13 +26,12 @@
 **Linguagem**: [Python3](https://www.python.org/)
 <br>
 
-## Ou execute locamente com virtualenv
+## Execute com virtualenv
+- Instale o virtualenv `sudo apt get install virtualenv`
 - Crie um arquivo virtualenv `virtualenv -p python3 env`
 - Ative com `source env/bin/activate`
 - Instale os requirimentos `pip install -r requirements.txt`
 - Instale o tkinter `sudo apt-get install python3-tk`
-- Execute o servidor web gunicorn `gunicorn app:app --bind 0.0.0.0:5000 --reload`
-
 
 ## Uso 
 A utilização do projeto requer poucos passos visando facilitar a correção do projeto. Após instalar as duas depêndencias
