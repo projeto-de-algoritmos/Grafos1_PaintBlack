@@ -26,9 +26,12 @@
 **Linguagem**: [Python3](https://www.python.org/)
 <br>
 
-* [OpenCV2](https://pypi.org/project/opencv-python/)
-
-* [Tkinter](https://riptutorial.com/tkinter/example/3206/installation-or-setup)
+## Ou execute locamente com virtualenv
+- Crie um arquivo virtualenv `virtualenv -p python3 env`
+- Ative com `source env/bin/activate`
+- Instale os requirimentos `pip install -r requirements.txt`
+- Instale o tkinter `sudo apt-get install python3-tk`
+- Execute o servidor web gunicorn `gunicorn app:app --bind 0.0.0.0:5000 --reload`
 
 
 ## Uso 
